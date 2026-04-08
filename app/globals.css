@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default: Emerald Theme */
+  --bg-color: #0a0c10;
+  --accent-color: #10b981;
+  --accent-bg: rgba(16, 185, 129, 0.15);
+  --accent-border: rgba(16, 185, 129, 0.4);
+  --glow-color: rgba(16, 185, 129, 0.2);
+}
+
+[data-theme='midnight'] {
+  --bg-color: #060614;
+  --accent-color: #818cf8;
+  --accent-bg: rgba(99, 102, 241, 0.15);
+  --accent-border: rgba(99, 102, 241, 0.4);
+  --glow-color: rgba(99, 102, 241, 0.2);
+}
+
+[data-theme='slate'] {
+  --bg-color: #0f172a;
+  --accent-color: #38bdf8;
+  --accent-bg: rgba(56, 189, 248, 0.15);
+  --accent-border: rgba(56, 189, 248, 0.4);
+  --glow-color: rgba(56, 189, 248, 0.2);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: #ffffff;
+  transition: background-color 0.8s ease;
+  overflow-x: hidden;
+}
+
+/* Эффект матового стекла */
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  border-radius: 1.5rem;
+}
+
+/* Заголовки */
+.os-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.os-title span {
+  color: var(--accent-color);
+}
+
+/* Кнопки приложений */
+.app-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.app-button.active {
+  background-color: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--accent-color);
+  box-shadow: 0 10px 20px var(--glow-color);
+}
+
+/* Поле для заметок */
+.notes-area {
+  width: 100%;
+  height: 300px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  resize: none;
+}
+
+.notes-area::placeholder {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+/* Фоновое свечение */
+.ambient-light {
+  position: fixed;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 60%;
+  background: radial-gradient(circle, var(--glow-color) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+  transition: background 1s ease;
+}
